@@ -5,12 +5,16 @@ const { buildSchema } = require("graphql");
 // GraphQL Schema
 const schema = buildSchema(`
     type Query {
-        message: String
+        helloYou(name: String!): String
     }
 `);
 
+const helloName = ({ name }) => {
+  return `Hello ${name}!`;
+};
+
 const root = {
-  message: () => "Hello world!",
+  helloYou: helloName,
 };
 
 // Create an express server and GraphQL endpoint
