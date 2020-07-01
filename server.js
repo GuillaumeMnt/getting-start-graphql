@@ -1,6 +1,6 @@
 const express = require("express");
 const express_graphql = require("express-graphql");
-const { buildSchema, VariablesAreInputTypesRule } = require("graphql");
+const { buildSchema } = require("graphql");
 
 // GraphQL Schema
 const schema = buildSchema(`
@@ -21,7 +21,7 @@ app.use(
   express_graphql({
     schema,
     rootValue: root,
-    graphiql: VariablesAreInputTypesRule,
+    graphiql: true,
   })
 );
 
