@@ -1,0 +1,33 @@
+query HelloName($name:String!) {
+	helloYou(name: $name)
+}
+
+query youCanEnter {
+  users: legalAge {
+    ...userFields
+  }
+}
+
+query callGirls($women:String!) {
+	giveGender(gender: $women) {
+	  ...userFields
+	}
+}
+
+query callBoys($men:String!) {
+	giveGender(gender: $men) {
+	  ...userFields
+	} 
+}
+
+query callUndefined($nd:String!) {
+	giveGender(gender: $nd) {
+	  ...userFields
+	} 
+}
+
+fragment userFields on User {
+  name
+  gender,
+  age
+}
